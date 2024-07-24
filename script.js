@@ -2,10 +2,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const borderElement = document.querySelector('.animated-border');
 
     let borderStyle = [
-        '2px solid transparent',
-        '2px solid #f3661e',
-        '2px solid #f3661e',
-        '2px solid transparent'
+        '2px solid #ea1d7c',
+        '2px solid #ffc500',
+        '2px solid #0cd1ca',
+        '2px solid #783dbd'
     ];
 
     let currentBorder = 0;
@@ -37,3 +37,31 @@ document.addEventListener("DOMContentLoaded", function() {
 
     rotateImage();
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const bouncingLetters = document.querySelector('.bouncing-letters');
+    const text = bouncingLetters.textContent;
+    bouncingLetters.innerHTML = '';
+  
+    // Split the text into words
+    const words = text.split(' ');
+  
+    words.forEach((word, wordIndex) => {
+      const wordSpan = document.createElement('span');
+      wordSpan.className = 'word';
+      wordSpan.style.setProperty('--i', wordIndex);
+  
+      // Split each word into letters
+      word.split('').forEach((letter, letterIndex) => {
+        const letterSpan = document.createElement('span');
+        letterSpan.textContent = letter;
+        letterSpan.style.setProperty('--i', letterIndex + (wordIndex * 0.1)); // Add delay for letters within words
+        wordSpan.appendChild(letterSpan);
+      });
+  
+      bouncingLetters.appendChild(wordSpan);
+    });
+  });
+  
+  
+  
